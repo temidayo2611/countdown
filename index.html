@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body" class="body">
+    <div class="images">
+        <img src="homejersey.jpg" alt="Home kit" class="image">
+        <img src="awayjersey.jpg" alt="Away kit" class="image2">
+        <img src="third.jpg" alt="Third kit" class="image3">
+    </div>
+    <h1 class="heading">Manchester United Kits Giveaway</h1>
+    <h2 class="sub-heading">Giveaway Ends on Wednesday, 7 March 2024 at 11:30</h2>
+    <p class="description">Manchester united giveaway is here, our new owner (Jim Ratcliffe) is giving out home, away
+        and third jerseys to our first 2000 followers on manchester utd instagram, tiktok and twitter pages. To get this
+        jerseys you can just simply follow our instagram page to get a home jersey then follow two of our pages to get
+        the home and away jerseys then follow all our pages to get our three jerseys for free
+    </p>
+    <div class="timer">
+        <div class="sub-timer">
+            <h1 id="days" class="digit">00</h1>
+            <p class="digit-name">Days</p>
+        </div>
+
+        <div class="sub-timer">
+            <h1 id="hours" class="digit">00</h1>
+            <p class="digit-name">Hours</p>
+        </div>
+
+        <div class="sub-timer">
+            <h1 id="minutes" class="digit">00</h1>
+            <p class="digit-name">Minutes</p>
+        </div>
+
+        <div class="sub-timer">
+            <h1 id="seconds" class="digit">00</h1>
+            <p class="digit-name">Seconds</p>
+        </div>
+    </div>
+
+    <script>
+        var target_mili_sec = new Date("Mar 7, 2024 11:30:00").getTime();
+
+        function timer() {
+            var now_mili_sec = new Date().getTime();
+            var remaining_sec = Math.floor((target_mili_sec - now_mili_sec) / 1000);
+
+            var days = Math.floor(remaining_sec / (3600 * 24));
+            var hours = Math.floor((remaining_sec % (3600 * 24)) / 3600);
+            var minutes = Math.floor((remaining_sec % 3600) / 60);
+            var seconds = Math.floor(remaining_sec % 60);
+
+            document.querySelector("#days").innerHTML = days;
+            document.querySelector("#hours").innerHTML = hours;
+            document.querySelector("#minutes").innerHTML = minutes;
+            document.querySelector("#seconds").innerHTML = seconds;
+        }
+
+        setInterval(timer, 1000);
+    </script>
+</body>
+
+</html>
